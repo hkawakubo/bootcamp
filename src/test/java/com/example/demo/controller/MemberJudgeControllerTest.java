@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,10 +7,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BootCampApplicationTests {
+public class MemberJudgeControllerTest {
 
   @Test
-  public void contextLoads() {
+public void inputTest001() {
+
   }
 
 }

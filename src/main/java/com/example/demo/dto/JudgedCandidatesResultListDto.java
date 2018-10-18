@@ -1,26 +1,26 @@
 package com.example.demo.dto;
 
 public class JudgedCandidatesResultListDto {
-//	メンバーの名前を返します
-	private String member_name;
-//入隊資格があるか判定します
-	private boolean enlisted_propriety;
+  //メンバーの名前を返します
+  private String memberName;
+  //入隊資格があるか判定します
+  private boolean enlistedPropriety;
 
-	public String getMember_name() {
-		return member_name;
-	}
+  public String getMemberName() {
+    return memberName;
+  }
 
-	public void setMember_name(String member_name) {
-		this.member_name = member_name;
-	}
+  public void setMemberName(String memberName) {
+    this.memberName = memberName;
+  }
 
-	public boolean getEnlisted_propriety() {
-		return enlisted_propriety;
-	}
+  public boolean getEnlisted_propriety() {
+    return enlistedPropriety;
+  }
 
-	public void setEnlisted_propriety(boolean enlisted_propriety) {
-		this.enlisted_propriety = enlisted_propriety;
-	}
+  public void setEnlisted_propriety(boolean enlistedPropriety) {
+    this.enlistedPropriety = enlistedPropriety;
+  }
 
 
 

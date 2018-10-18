@@ -25,7 +25,7 @@ public class MemberJudgeController {
 			// 適正を判定してレスポンスを作成します.
 			response = memberJudgeService.judge(dto);
 		} else {
-//		checkinputメソッドでfy製があった場合はnullで返します
+//		checkinputメソッドで不正があった場合はnullで返します
 			return null;
 		}
 		return response;
@@ -35,11 +35,11 @@ public class MemberJudgeController {
 // 入力されたDTOの不正をチェックします.
 	private boolean checkInput(MemberCandidatesListtDto dto) {
 //		各項目の文字数を取得
-		int eventplanning = dto.getEvent_planninng();
+		int eventplanning = dto.getEventPlanninng();
 		int cogitation = dto.getCogitation();
 		int coordination = dto.getCoordination();
-		int programmming_ability = dto.getProgramming_abiliy();
-		int infrastructure_knowledge = dto.getInfrastructure_knowledge();
+		int programmming_ability = dto.getProgrammingAbiliy();
+		int infrastructure_knowledge = dto.getInfrastructureKnowledge();
 		if(
 //				各項目の文字数を判定
 				((eventplanning>=6)||(eventplanning<0))||
