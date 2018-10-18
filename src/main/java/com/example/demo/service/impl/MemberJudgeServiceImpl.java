@@ -11,30 +11,38 @@ public class MemberJudgeServiceImpl implements MemberJudgeService {
   @Override
 public JudgedCandidatesResultListDto judge(MemberCandidatesListtDto dto) {
 
-	  //コントローラーに返却するクラスを初期化します.
-	  JudgedCandidatesResultListDto result = new JudgedCandidatesResultListDto();
-	try {
-    //イベント企画力が1以下または調整力が1以下の場合falseで返す
-    if ((dto.getEventPlanninng() <= 1) || (dto.getCoordination() <= 1)) {
-      result.setMemberName(dto.getMemberName());
-      result.setEnlisted_propriety(false);
-    } else if ((dto.getEventPlanninng()//合計が１０点以下の場合もfalseで返す
-        + dto.getCogitation()
-        + dto.getCoordination()
-        + dto.getProgrammingAbiliy()
-        + dto.getInfrastructureKnowledge() <= 10)) {
-      result.setMemberName(dto.getMemberName());
-      result.setEnlisted_propriety(false);
-    } else {
-      //それ以外の場合trueで返す;
-      result.setMemberName(dto.getMemberName());
-      result.setEnlisted_propriety(true);
+    //コントローラーに返却するクラスを初期化します.
+    JudgedCandidatesResultListDto result = new JudgedCandidatesResultListDto();
+    int eventPlanninng = dto.getEventPlanninng();
+    int cogitation = dto.getCogitation();
+    int coordination = dto.getCoordination();
+    int programmingAbiliy = dto.getProgrammingAbiliy();
+    int infrastructureKnowledge = dto.getInfrastructureKnowledge();
+
+    try {
+      //イベント企画力が1以下または調整力が1以下の場合falseで返す
+      if ((eventPlanninng <= 1) || (coordination <= 1)) {
+        result.setMemberName(dto.getMemberName());
+        result.setEnlisted_propriety(false);
+      }
+      //合計が１０点以下の場合もfalseで返す
+      else if ((dto.getEventPlanninng()
+          + cogitation
+          + coordination
+          + programmingAbiliy
+          + infrastructureKnowledge <= 10)) {
+        result.setMemberName(dto.getMemberName());
+        result.setEnlisted_propriety(false);
+      } else {
+        //それ以外の場合trueで返す;
+        result.setMemberName(dto.getMemberName());
+        result.setEnlisted_propriety(true);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+      e.getStackTrace();
     }
-	} catch(Exception e) {
-		e.printStackTrace();
-		e.getStackTrace();
-	}
-	return result;
+    return result;
 
   }
 }
